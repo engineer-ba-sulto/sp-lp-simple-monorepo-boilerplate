@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/pvolok/mprocs/master/schemas/mprocs.json
+
+proc_list_title: expo-app-lp-monorepo
+
+procs:
+  sp:
+    cmd: ["bun", "run", "start"]
+    cwd: <CONFIG_DIR>/apps/sp
+    stop: SIGINT
+  lp:
+    cmd: ["bun", "run", "dev"]
+    cwd: <CONFIG_DIR>/apps/lp
+    stop: SIGINT

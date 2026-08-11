@@ -1,0 +1,150 @@
+---
+description: RTK - Rust Token Killer
+alwaysApply: false
+---
+
+# RTK - Rust Token Killer
+
+**Usage**: Token-optimized CLI proxy for shell commands.
+
+## Rule
+
+Always prefix shell commands with `rtk`.
+
+Built-in tools (`Read`, `Grep`, `Glob`) are not auto-rewritten. Use shell equivalents or explicit `rtk` commands for compact output.
+
+Examples:
+
+```bash
+rtk git status
+rtk cargo test
+rtk bun run build
+rtk pytest -q
+```
+
+## Files
+
+```bash
+rtk ls .                        # Token-optimized directory tree
+rtk read file.rs                # Smart file reading
+rtk read file.rs -l aggressive  # Signatures only (strips bodies)
+rtk smart file.rs               # 2-line heuristic code summary
+rtk find "*.rs" .               # Compact find results
+rtk grep "pattern" .            # Grouped search results
+rtk diff file1 file2            # Condensed diff
+```
+
+## Git
+
+```bash
+rtk git status
+rtk git log -n 10
+rtk git diff
+rtk git add
+rtk git commit -m "msg"
+rtk git push
+rtk git pull
+```
+
+## GitHub CLI
+
+```bash
+rtk gh pr list
+rtk gh pr view 42
+rtk gh issue list
+rtk gh run list
+```
+
+## Test Runners
+
+```bash
+rtk jest
+rtk vitest
+rtk playwright test
+rtk pytest
+rtk go test
+rtk cargo test
+rtk err <cmd>                   # Filter errors only from any command
+rtk test <cmd>                  # Generic test wrapper — failures only
+```
+
+## Build & Lint
+
+```bash
+rtk lint
+rtk tsc
+rtk next build
+rtk prettier --check .
+rtk cargo build
+rtk cargo clippy
+rtk ruff check
+rtk golangci-lint run
+```
+
+## Package Managers
+
+```bash
+rtk bun install
+rtk bun run build
+rtk pnpm list
+rtk pip list
+rtk pip outdated
+rtk prisma generate
+```
+
+## Containers
+
+```bash
+rtk docker ps
+rtk docker images
+rtk docker logs <container>
+rtk docker compose ps
+rtk kubectl pods
+rtk kubectl logs <pod>
+```
+
+## Data & Utilities
+
+```bash
+rtk json config.json            # Structure without values
+rtk deps                        # Dependencies summary
+rtk env -f AWS                  # Filtered env vars
+rtk log app.log                 # Deduplicated logs
+rtk curl <url>                  # Truncate + save full output
+rtk summary <long command>      # Heuristic summary
+```
+
+## Meta Commands
+
+```bash
+rtk gain                        # Token savings analytics
+rtk gain --history              # Recent command savings history
+rtk gain --graph                # ASCII graph (last 30 days)
+rtk gain --daily                # Day-by-day breakdown
+rtk discover                    # Find missed savings opportunities
+rtk session                     # RTK adoption across recent sessions
+rtk proxy <cmd>                 # Run raw command without filtering
+```
+
+## Global Flags
+
+```bash
+-u, --ultra-compact             # Extra token savings (ASCII icons, inline format)
+-v, --verbose                   # Increase verbosity (-v, -vv, -vvv)
+```
+
+## Setup (Cursor)
+
+```bash
+rtk init -g --agent cursor      # Install hook + AGENTS.md
+rtk init --show                 # Verify installation
+rtk init -g --uninstall         # Remove hook and RTK config
+```
+
+## Verification
+
+```bash
+rtk --version
+rtk gain
+which rtk
+```

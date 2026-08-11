@@ -1,0 +1,41 @@
+---
+description: プロジェクト内チケットの配置・命名・完了・コミット規約
+globs: docs/ticket_management/**/*
+alwaysApply: false
+---
+
+# チケット管理
+
+実装タスクの正本は `docs/ticket_management/`。仕様・設計は、あれば `docs/reference/` を参照する。
+
+## レイアウト
+
+| 相対パス                                  | 用途                               |
+| ----------------------------------------- | ---------------------------------- |
+| `docs/ticket_management/todo/`            | 未完了                             |
+| `docs/ticket_management/done/YYYY-MM-DD/` | 完了（移動時に日付フォルダを作成） |
+
+親ワークスペースに横断チケットがある場合のみ、`Workspace/ticket_management/` を参照する（任意）。
+
+## 命名
+
+`YYYY-MM-DD_<id>_<task_name>.md`
+
+- `<id>`: チケット ID（例: 連番 `1`、または計画 ID スラッグ `cf_ai_001`）。**1 ファイルに ID は 1 つ**
+- 計画 ID 付きチケット: `YYYY-MM-DD_cf_ai_001_<task_name>.md`
+- 連番のみのチケット: `YYYY-MM-DD_1_<task_name>.md`（従来どおり）
+- チケット ID（コミット用）: ファイル名の `<id>` 部分（例: `cf_ai_001`、`2026-06-07_1` は日付＋連番）
+
+## 作業時
+
+1. `todo/` のチケットから作業対象を特定する（複数あるときは連番・日付で優先度を判断）
+2. 完了したら `todo/` → `done/完了日/` へ移動する
+3. コミット件名にチケット ID を含める（例: `feat: cf_ai_001 …`、`feat: 2026-06-05_2 …`）
+4. `.cursor/commands/create-commit-message-with-id+ticket.md` があれば、その手順でメッセージを作る
+
+## 例
+
+```
+docs/ticket_management/todo/YYYY-MM-DD_cf_ai_001_<task_name>.md
+docs/ticket_management/done/YYYY-MM-DD/YYYY-MM-DD_cf_ai_001_<task_name>.md
+```

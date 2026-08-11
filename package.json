@@ -1,0 +1,30 @@
+{
+  "name": "expo-app-lp-monorepo-boilerplate",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "mprocs",
+    "dev:sp": "bun --cwd=apps/sp run dev",
+    "dev:lp": "bun --cwd=apps/lp run dev",
+    "init:project": "bun run scripts/init-project.ts",
+    "check": "biome check .",
+    "check:fix": "biome check . --write",
+    "check:sp": "bun --cwd=apps/sp run check",
+    "typecheck:sp": "bun --cwd=apps/sp run typecheck",
+    "test:sp": "bun --cwd=apps/sp test",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "format": "biome format .",
+    "format:fix": "biome format . --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.16",
+    "@types/bun": "latest",
+    "mprocs": "^0.9.6",
+    "typescript": "6.0.3"
+  },
+  "packageManager": "bun@1.3.14"
+}
